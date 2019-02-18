@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <title>Article Ranker</title>
 </head>
-<body>
+<body onload="init();">
     <h1>Article Ranker</h1>
     <table>
         <tr>
@@ -23,7 +23,8 @@
                 <a href="javascraft:void(0)" onclick="getArticle('article-3.json');"> Article 3 </a> <br/>
                 <a href="javascraft:void(0)" onclick="getArticle('article-4.json');"> Article 4 </a> <br/>
                 <a href="javascraft:void(0)" onclick="getArticle('article-5.json');"> Article 5 </a> <br/>
-
+                <br/><hr/><br/>
+                <div id="progress"></div>
             </td>
 
             <td>

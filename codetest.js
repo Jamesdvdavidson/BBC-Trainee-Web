@@ -2,6 +2,14 @@
 // version 1 17/02/2019
 // author James Davidson
 
+var arrReadArticles = [];
+
+
+function init() {
+    arrReadArticles = [];
+}
+
+
 function getArticle(filename) {
     var divContent = document.getElementById("articleContent");
     divContent.innerHTML = "";
@@ -15,6 +23,16 @@ function getArticle(filename) {
 
     httpreq.onreadystatechange = function () {
         if (this.readyState == 4){
+
+            if (arrReadArticles.includes(filename) === false){
+                arrReadArticles.push(filename);
+            }
+            console.log(arrReadArticles);
+
+            var divProgress = document.getElementById("progress");
+
+            divProgress.innerHTML = "You have read " + arrReadArticles.length + " of today's 5 articles.";
+
             var jsonArticle = JSON.parse(this.responseText);
 
             var divContent = document.getElementById("articleContent");
@@ -94,38 +112,5 @@ function getArticle(filename) {
     httpreq.open("GET", URL, true);
     //httpreq.setRequestHeader("Content-type", "application/json");
     httpreq.send();
-    return;
-}
-
-
-function getArticle1() {
-
-    alert('getArticle');
-
-    var httpreq = new XMLHttpRequest();
-
-    httpreq.onreadystatechange = function () {
-        if (this.readyState == 4) {
-            var jsonResults = JSON.parse(this.responseText);
-            alert('got the article');
-            alert(this.responseText);
-        }
-        return;
-    };
-
-//   URL = "http://localhost/codingtest/article/article-1.json";
-
-    URL = "http://3.8.136.10/bbccodetest/article//article-1.json";
-
-    //URL = "http://52.56.166.229/html/codingtest/article/article-2.json";
-
-
-    httpreq.open("GET", URL, true);
-//   httpreq.setRequestHeader("Content-type", "application/json");
-//   httpreq.setRequestHeader("Access-Control-Allow-Origin", "*");
-
-    httpreq.send();
-
-
     return;
 }
