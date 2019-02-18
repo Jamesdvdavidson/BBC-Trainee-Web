@@ -1,0 +1,24 @@
+body{
+    font-family: Arial, sans-serif;
+}
+h2.article{
+    font-style: italic;
+    color: firebrick;
+}
+h3.article{
+    color: cornflowerblue;
+}
+
+#menu{
+    width: 100px;
+    vertical-align: top;
+    horiz-align: left;
+}
+
+#articleContent{
+    border-left: black;
+    border-left-width: 1px;
+    border-left-style: solid;
+    padding-left: 10px;
+
+}
