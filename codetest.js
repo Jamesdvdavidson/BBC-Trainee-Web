@@ -3,6 +3,7 @@
 // author James Davidson
 
 var arrReadArticles = [];
+var arrArticles = ["article-1","article-2","article-3","article-4","article-5"];
 
 
 function init() {
@@ -31,7 +32,18 @@ function getArticle(filename) {
 
             var divProgress = document.getElementById("progress");
 
-            divProgress.innerHTML = "You have read " + arrReadArticles.length + " of today's 5 articles.";
+            if (arrReadArticles.length != 5) {
+                divProgress.innerHTML = "<p>You have read " + arrReadArticles.length + " of today's 5 articles.</p>";
+            } else {
+                divProgress.innerHTML = "<p>You have read all of today's articles, would you like to rank them?</p>" ;
+                var lnkRank = document.createElement("a");
+                lnkRank.href = "javascraft:void(0)";
+                lnkRank.onclick = function(){
+                    getRanking();
+                };
+                lnkRank.innerText = "Rank articles";
+                divProgress.appendChild(lnkRank);
+            }
 
             var jsonArticle = JSON.parse(this.responseText);
 
@@ -113,4 +125,42 @@ function getArticle(filename) {
     //httpreq.setRequestHeader("Content-type", "application/json");
     httpreq.send();
     return;
+}
+
+function getRanking() {
+    var divContent = document.getElementById("articleContent");
+    divContent.innerHTML = "";
+
+    var tblRanking = document.createElement("table");
+    divContent.appendChild(tblRanking);
+
+    var rowHeading = tblRanking.insertRow(-1);
+    rowHeading.insertCell(0).innerHTML = "<b>Rank</b>";
+    rowHeading.insertCell(1).innerHTML = "<b>Article</b>";
+
+    for (var i = 0; i < arrArticles.length; i++){
+        var rowRanking = tblRanking.insertRow(-1);
+        rowRanking.insertCell(0).innerHTML = i+1;
+        rowRanking.insertCell(1).innerHTML = arrArticles[i];
+
+        var cellUp = rowRanking.insertCell(2);
+
+        if (i >= 1) {
+            var btnUp = document.createElement("input");
+            btnUp.type = "button";
+            btnUp.value = "Up";
+            btnUp.rank = i+1;
+            btnUp.row = rowRanking;
+            btnUp.tbl = tblRanking;
+            btnUp.onclick = function () {
+                alert(this.rank);
+                this.row.parentNode.insertBefore(this.row,this.row.parentNode.rows[this.rank-1]);
+            };
+            cellUp.appendChild(btnUp);
+        }
+
+
+    }
+
+
 }
