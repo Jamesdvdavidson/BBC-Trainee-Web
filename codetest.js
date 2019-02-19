@@ -3,7 +3,15 @@
 // author James Davidson
 
 var arrReadArticles = [];
-var arrArticles = ["article-1","article-2","article-3","article-4","article-5"];
+//var arrArticles = ["article-1","article-2","article-3","article-4","article-5"];
+var arrArticles = [
+    {"filename" : "article-1.json", "rank" : 1},
+    {"filename" : "article-2.json", "rank" : 2},
+    {"filename" : "article-3.json", "rank" : 3},
+    {"filename" : "article-4.json", "rank" : 4},
+    {"filename" : "article-5.json", "rank" : 5}
+];
+
 
 
 function init() {
@@ -25,8 +33,17 @@ function getArticle(filename) {
     httpreq.onreadystatechange = function () {
         if (this.readyState == 4){
 
+            var jsonArticle = JSON.parse(this.responseText);
+
             if (arrReadArticles.includes(filename) === false){
                 arrReadArticles.push(filename);
+                for (var i = 0; i < arrArticles.length; i++){
+                    if (arrArticles[i].filename == filename){
+
+                        arrArticles[i].json = jsonArticle;
+                    }
+
+                }
             }
             console.log(arrReadArticles);
 
@@ -45,7 +62,7 @@ function getArticle(filename) {
                 divProgress.appendChild(lnkRank);
             }
 
-            var jsonArticle = JSON.parse(this.responseText);
+
 
             var divContent = document.getElementById("articleContent");
 
@@ -130,7 +147,6 @@ function getArticle(filename) {
 function getRanking() {
     var divContent = document.getElementById("articleContent");
     divContent.innerHTML = "";
-
     var tblRanking = document.createElement("table");
     divContent.appendChild(tblRanking);
 
@@ -138,29 +154,60 @@ function getRanking() {
     rowHeading.insertCell(0).innerHTML = "<b>Rank</b>";
     rowHeading.insertCell(1).innerHTML = "<b>Article</b>";
 
-    for (var i = 0; i < arrArticles.length; i++){
-        var rowRanking = tblRanking.insertRow(-1);
-        rowRanking.insertCell(0).innerHTML = i+1;
-        rowRanking.insertCell(1).innerHTML = arrArticles[i];
+    for (var n = 0; n < arrArticles.length; n++){
+        for (var i = 0; i < arrArticles.length; i++) {
+            if (arrArticles[i].rank == (n + 1)) {
 
-        var cellUp = rowRanking.insertCell(2);
+                var rowRanking = tblRanking.insertRow(-1);
+                rowRanking.insertCell(0).innerHTML = arrArticles[i].rank;
+                rowRanking.insertCell(1).innerHTML = arrArticles[i].json.title;
 
-        if (i >= 1) {
-            var btnUp = document.createElement("input");
-            btnUp.type = "button";
-            btnUp.value = "Up";
-            btnUp.rank = i+1;
-            btnUp.row = rowRanking;
-            btnUp.tbl = tblRanking;
-            btnUp.onclick = function () {
-                alert(this.rank);
-                this.row.parentNode.insertBefore(this.row,this.row.parentNode.rows[this.rank-1]);
-            };
-            cellUp.appendChild(btnUp);
+                var cellUp = rowRanking.insertCell(2);
+                var cellDown = rowRanking.insertCell(3);
+
+                if (arrArticles[i].rank >= 2) {
+                    var btnUp = document.createElement("input");
+                    btnUp.type = "button";
+                    btnUp.value = "Up";
+                    btnUp.rank = arrArticles[i].rank;
+                    btnUp.row = rowRanking;
+                    btnUp.tbl = tblRanking;
+                    btnUp.onclick = function () {
+                        for (var j = arrArticles.length - 1; j >= 0; j--) {
+                            if (arrArticles[j].rank == this.rank) {
+                                arrArticles[j].rank = (this.rank - 1);
+                            } else if (arrArticles[j].rank == (this.rank - 1)) {
+                                arrArticles[j].rank = (this.rank);
+                            }
+                        }
+                        getRanking();
+                        return;
+                    };
+                    cellUp.appendChild(btnUp);
+
+                }
+
+                if (arrArticles[i].rank <= (arrArticles.length - 1)) {
+                    var btnDown = document.createElement("input");
+                    btnDown.type = "button";
+                    btnDown.value = 'Down';
+                    btnDown.rank = arrArticles[i].rank;
+                    btnDown.row = rowRanking;
+                    btnDown.tbl = tblRanking;
+                    btnDown.onclick = function () {
+                        for (var j = 0; j < arrArticles.length ; j++) {
+                            if (arrArticles[j].rank == this.rank) {
+                                arrArticles[j].rank = (this.rank + 1);
+                            } else if (arrArticles[j].rank == (this.rank + 1)) {
+                                arrArticles[j].rank = (this.rank);
+                            }
+                        }
+                        getRanking();
+                        return;
+                    };
+                    cellDown.appendChild(btnDown);
+                }
+            }
         }
-
-
     }
-
-
 }
