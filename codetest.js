@@ -215,19 +215,25 @@ function getRanking() {
     btnSubmit.type = "button";
     btnSubmit.value = "Submit my rankings";
     btnSubmit.onclick = function(){
-        submitRankings();
+        submitRankings("http://3.8.136.10/bbccodetest/setranking.php");
     };
+
+    var btnSubmitFake = document.createElement("input");
+    btnSubmitFake.type = "button";
+    btnSubmitFake.value = "Submit my rankings to a site that doesn't exist";
+    btnSubmitFake.onclick = function(){
+        submitRankings("http://madeupsite.com");
+    };
+
     divContent.appendChild(btnSubmit);
-    var divSubmitResponse = document.createElement("div")
+    divContent.appendChild(document.createElement("br"));
+    divContent.appendChild(btnSubmitFake);
+    var divSubmitResponse = document.createElement("div");
     divSubmitResponse.id = "SubmitResponse";
     divContent.appendChild(divSubmitResponse);
 }
 
-function submitRankings() {
-    alert("Submit");
-
-    var URL = "http://3.8.136.10/bbccodetest/setranking.php";
-
+function submitRankings(URL) {
     var httpreq = new XMLHttpRequest();
 
     httpreq.onreadystatechange = function () {
