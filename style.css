@@ -22,3 +22,14 @@ h3.article{
     padding-left: 10px;
 
 }
+
+.errorbox{
+    background-color: tomato;
+    padding: 10px;
+    font-weight: bold;
+}
+.successbox{
+    background-color: chartreuse;
+    padding: 10px;
+    font-weight: bold;
+}

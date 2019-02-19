@@ -210,4 +210,46 @@ function getRanking() {
             }
         }
     }
+
+    var btnSubmit = document.createElement("input");
+    btnSubmit.type = "button";
+    btnSubmit.value = "Submit my rankings";
+    btnSubmit.onclick = function(){
+        submitRankings();
+    };
+    divContent.appendChild(btnSubmit);
+    var divSubmitResponse = document.createElement("div")
+    divSubmitResponse.id = "SubmitResponse";
+    divContent.appendChild(divSubmitResponse);
+}
+
+function submitRankings() {
+    alert("Submit");
+
+    var URL = "http://3.8.136.10/bbccodetest/setranking.php";
+
+    var httpreq = new XMLHttpRequest();
+
+    httpreq.onreadystatechange = function () {
+        if (this.readyState == 4){
+            var divSubmitResponse = document.getElementById("SubmitResponse");
+            switch (this.status){
+                case 200:
+                    divSubmitResponse.innerHTML = this.responseText;
+                    divSubmitResponse.className = "successbox";
+                    break;
+                default:
+                    divSubmitResponse.innerHTML = "Something went wrong";
+                    divSubmitResponse.className = "errorbox";
+                    break;
+            }
+        }
+
+
+
+    };
+
+    httpreq.open("POST", URL, true);
+    httpreq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    httpreq.send(JSON.stringify(arrArticles));
 }
