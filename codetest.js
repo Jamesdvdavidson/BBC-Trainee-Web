@@ -149,11 +149,9 @@ function getRanking() {
     divContent.innerHTML = "";
 
     var divRankHelp = document.createElement("div");
-    var divHelp = document.createElement("div");
-    divHelp.innerHTML = "<h3>Ranking</h3><p>You can give your rankings by using the up and down arrows to move the " +
+    divRankHelp.innerHTML = "<h3>Ranking</h3><p>You can give your rankings by using the up and down arrows to move the " +
         "read articles. The higher the rank the better you thought the article was </p><p>After you have given" +
         " your ranking you can submit them.</p>";
-    divRankHelp.appendChild(divHelp);
     divContent.appendChild(divRankHelp);
 
     var tblRanking = document.createElement("table");
