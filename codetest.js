@@ -1,5 +1,5 @@
 // codetest.js
-// version 1 17/02/2019
+// version 2 22/02/2019
 // author James Davidson
 
 var arrReadArticles = [];
