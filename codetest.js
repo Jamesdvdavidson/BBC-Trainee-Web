@@ -54,7 +54,7 @@ function getArticle(filename) {
             } else {
                 divProgress.innerHTML = "<p>You have read all of today's articles, would you like to rank them?</p>" ;
                 var lnkRank = document.createElement("a");
-                lnkRank.href = "javascraft:void(0)";
+                lnkRank.href = "#";
                 lnkRank.onclick = function(){
                     getRanking();
                 };
@@ -147,6 +147,15 @@ function getArticle(filename) {
 function getRanking() {
     var divContent = document.getElementById("articleContent");
     divContent.innerHTML = "";
+
+    var divRankHelp = document.createElement("div");
+    var divHelp = document.createElement("div");
+    divHelp.innerHTML = "<h3>Ranking</h3><p>You can give your rankings by using the up and down arrows to move the " +
+        "read articles. The higher the rank the better you thought the article was </p><p>After you have given" +
+        " your ranking you can submit them.</p>";
+    divRankHelp.appendChild(divHelp);
+    divContent.appendChild(divRankHelp);
+
     var tblRanking = document.createElement("table");
     divContent.appendChild(tblRanking);
 

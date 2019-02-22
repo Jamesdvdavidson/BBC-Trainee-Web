@@ -1,10 +1,12 @@
 body{
     font-family: Arial, sans-serif;
 }
+
 h2.article{
     font-style: italic;
     color: firebrick;
 }
+
 h3.article{
     color: cornflowerblue;
 }
@@ -20,7 +22,7 @@ h3.article{
     border-left-width: 1px;
     border-left-style: solid;
     padding-left: 10px;
-
+    background: rgba(255, 237, 199, 0.18);
 }
 
 .errorbox{
@@ -28,8 +30,10 @@ h3.article{
     padding: 10px;
     font-weight: bold;
 }
+
 .successbox{
     background-color: chartreuse;
     padding: 10px;
     font-weight: bold;
 }
+
