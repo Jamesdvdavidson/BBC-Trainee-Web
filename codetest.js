@@ -40,18 +40,34 @@ function getArticle(filename, showNow=true) {
     httpreq.onreadystatechange = function () {
         if (this.readyState == 4) {
 
-            var jsonArticle = JSON.parse(this.responseText);
+            switch (this.status){
+                case 200:
+                    var jsonArticle = JSON.parse(this.responseText);
 
-            for (var i = 0; i < arrArticles.length; i++) {
-                if (arrArticles[i].filename == filename) {
+                    for (var i = 0; i < arrArticles.length; i++) {
+                        if (arrArticles[i].filename == filename) {
 
-                    arrArticles[i].json = jsonArticle;
-                    if (showNow){
-                        showArticle(filename);
+                            arrArticles[i].json = jsonArticle;
+                            if (showNow){
+                                showArticle(filename);
+                            }
+                        }
+
                     }
-                }
+                    break;
 
+                default:
+                    var divArticle = document.getElementById("articleContent");
+                    divArticle.innerHTML = "";
+                    var divError = document.createElement("div");
+                    divError.innerHTML = "Something went wrong";
+                    divError.className = "errorbox";
+                    divArticle.appendChild(divError);
+                    break;
             }
+
+
+
 
             //console.log(arrReadArticles);
 

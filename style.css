@@ -17,12 +17,19 @@ h3.article{
     horiz-align: left;
 }
 
+#content{
+    vertical-align: top;
+    horiz-align: left;
+}
+
 #articleContent{
     border-left: black;
     border-left-width: 1px;
     border-left-style: solid;
     padding-left: 10px;
     background: rgba(255, 237, 199, 0.18);
+    vertical-align: top;
+
 }
 
 .errorbox{
