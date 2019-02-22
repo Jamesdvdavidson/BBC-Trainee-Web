@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e233b56-f3a2-40d5-9376-a30633682fe5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codetest.js" beforeDir="false" afterPath="$PROJECT_DIR$/codetest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +21,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="552">
-                  <caret line="30" column="59" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="59" />
+                <state relative-caret-position="759">
+                  <caret line="33" column="111" selection-start-line="33" selection-start-column="111" selection-end-line="33" selection-end-column="111" />
                 </state>
               </provider>
             </entry>
@@ -30,8 +30,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/codetest.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="462">
-                  <caret line="157" column="48" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
+                <state relative-caret-position="564">
+                  <caret line="225" column="91" selection-start-line="225" selection-start-column="91" selection-end-line="225" selection-end-column="91" />
                   <folding>
                     <element signature="n#!!doc" expanded="true" />
                   </folding>
@@ -42,8 +42,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="12" selection-start-line="12" selection-end-line="12" />
+                <state relative-caret-position="621">
+                  <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -100,6 +100,7 @@
       <find>getrank</find>
       <find>getRanking</find>
       <find>alert</find>
+      <find>you have</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,7 +212,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39044000" />
+    <option name="totallyTimeSpent" value="42442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
@@ -291,22 +292,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="621">
+          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="30" column="59" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="59" />
+        <state relative-caret-position="759">
+          <caret line="33" column="111" selection-start-line="33" selection-start-column="111" selection-end-line="33" selection-end-column="111" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/codetest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="157" column="48" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
+        <state relative-caret-position="564">
+          <caret line="225" column="91" selection-start-line="225" selection-start-column="91" selection-end-line="225" selection-end-column="91" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
