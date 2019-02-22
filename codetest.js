@@ -134,6 +134,8 @@ function getArticle(filename) {
                 }
             }
 
+            generateNextButton(filename);
+
             return true;
         }
     }
@@ -143,6 +145,25 @@ function getArticle(filename) {
     httpreq.send();
     return;
 }
+
+function generateNextButton(filename){
+    var divContent = document.getElementById("articleContent");
+    for (var i = 0; i < arrArticles.length -1; i++){
+        if (filename == arrArticles[i].filename){
+            if (i <= arrArticles.length - 1){
+                var btnNext = document.createElement("input");
+                btnNext.type = "button";
+                btnNext.value = "Next";
+                btnNext.filename = arrArticles[i+1].filename;
+                btnNext.onclick = function(){
+                  getArticle(this.filename);  
+                };
+                divContent.appendChild(btnNext);
+            }
+        }
+    }
+}
+
 
 function getRanking() {
     var divContent = document.getElementById("articleContent");
