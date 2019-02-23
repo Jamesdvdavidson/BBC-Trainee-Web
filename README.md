@@ -11,10 +11,3 @@ The website is currently loaded onto my AWS here <http://3.8.136.10/bbccodetest/
 I have loaded the JSON articles to my existing AWS server at
 http://3.8.136.10/bbccodetest/article/
 
-To allow access to files on the server added to httpd config
-```apacheconfig
-<Directory "/var/www/html/bbccodetest/article">
-    Header set Access-Control-Allow-Origin "*"
-</Directory>
-```
-
